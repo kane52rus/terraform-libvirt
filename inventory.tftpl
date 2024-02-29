@@ -1,0 +1,12 @@
+%{ for group in groups ~}
+${group}:
+  hosts:
+%{ for server_name, data in servers ~}
+%{ if data.group == group ~}
+    ${server_name}:
+      ansible_host: ${data.ip_address}
+%{ endif ~}
+%{ endfor ~}
+
+%{ endfor ~}
+

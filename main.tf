@@ -17,3 +17,12 @@ module "libvirt_domains" {
   subnet_id = module.libvirt_network.subnet
   depends_on = [module.libvirt_network]
 }
+
+resource "local_sensitive_file" "hosts" {
+  content = templatefile("${path.module}/inventory.tftpl",
+    {
+      servers = local.servers,
+      groups = local.groups
+    })
+  filename = "./inventory/pgsql.yml"
+}
