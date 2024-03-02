@@ -10,3 +10,8 @@ ${group}:
 
 %{ endfor ~}
 
+all:
+  children:
+%{ for group in groups ~}
+    ${group}:
+%{ endfor ~}

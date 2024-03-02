@@ -7,4 +7,5 @@ locals {
     haproxy_01 = {cpu = "1", memory = "1024", ip_address="10.9.9.30", group="haproxy"}
   }
   groups = distinct([for k,v in local.servers : v.group])
+
 }

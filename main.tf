@@ -24,5 +24,5 @@ resource "local_sensitive_file" "hosts" {
       servers = local.servers,
       groups = local.groups
     })
-  filename = "./inventory/pgsql.yml"
+  filename = "../inventory/kvm.yml"
 }
